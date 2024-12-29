@@ -1,0 +1,55 @@
+<div class="container py-5">
+    <form class="container" [formGroup]="bookForm">
+        <div class="card" style="width: 1200px;">
+            <h4 class="card-title">{{pagetitle}}</h4>
+            <div class="card-header">
+                <!-- Optionally, you can add some instructions or a title here -->
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="title">Book Title</label>
+                            <span class="text-danger">*</span>
+                            <input id="title" formControlName="Title" class="form-control" placeholder="Enter book title" />
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="author">Author</label>
+                            <span class="text-danger">*</span>
+                            <input id="author" formControlName="Author" class="form-control" placeholder="Enter author name" />
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="isbn">ISBN</label>
+                            <span class="text-danger">*</span>
+                            <input id="isbn" formControlName="ISBN" class="form-control" placeholder="Enter ISBN number" />
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="form-group">
+                            <label for="publicationDate">Publication Date</label>
+                            <span class="text-danger">*</span>
+                            <input 
+                                id="publicationDate" 
+                                formControlName="PublicationDate" 
+                                class="form-control" 
+                                type="date" 
+                                placeholder="Enter publication date" 
+                            />
+                        </div>
+                    </div>
+
+                    <div class="col-lg-12 text-center py-3">
+                        <button class="btn btn-success" type="submit"  (click)="onSubmit()">Save Book</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

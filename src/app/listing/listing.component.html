@@ -1,0 +1,36 @@
+<div class="container py-5">
+    <div class="card">
+      <h4 class="card-title py-3 px-3">Listing Books</h4>
+      <div class="card-header">
+        <a class="btn btn-success" routerLink="addbook">Create New Book</a>
+      </div>
+      <div class="card-body">
+        <table class="table table-bordered text-dark">
+          <thead>
+            <tr>
+              <th>Book Title</th>
+              <th>Author</th>
+              <th>ISBN</th>
+              <th>Publication Date</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let book of BookList">
+              <td>{{book.title}}</td>
+              <td>{{book.author}}</td>
+              <td>{{book.isbn}}</td>
+              <td>{{book.publicationDate | date}}</td>
+              <td>
+                <button class="btn btn-primary btn-sm" (click)="editBook(book)" style="margin-right: 10px;">
+                  Edit
+                </button>
+                <button class="btn btn-danger btn-sm" (click)="deleteBook(book.id)">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  

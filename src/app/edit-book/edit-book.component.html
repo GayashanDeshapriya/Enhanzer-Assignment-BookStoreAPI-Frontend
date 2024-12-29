@@ -1,0 +1,50 @@
+<div class="container py-5">
+    <form class="container" [formGroup]="editBookForm" (ngSubmit)="updateBook()">
+      <div class="card" style="width: 1200px;">
+        <div class="card-header">
+          <p class="text-muted">Edit the details of the book below and click "Update Book" to save changes.</p>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label for="Title">Book Title</label>
+                <span class="text-danger">*</span>
+                <input id="Title" formControlName="Title" class="form-control" placeholder="Enter book title" />
+              </div>
+            </div>
+  
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label for="Author">Author</label>
+                <span class="text-danger">*</span>
+                <input id="Author" formControlName="Author" class="form-control" placeholder="Enter author name" />
+              </div>
+            </div>
+  
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label for="ISBN">ISBN</label>
+                <span class="text-danger">*</span>
+                <input id="ISBN" formControlName="ISBN" class="form-control" placeholder="Enter ISBN number" />
+              </div>
+            </div>
+  
+            <div class="col-lg-6">
+              <div class="form-group">
+                <label for="PublicationDate">Publication Date</label>
+                <span class="text-danger">*</span>
+                <input id="PublicationDate" type="date" formControlName="PublicationDate" class="form-control" />
+              </div>
+            </div>
+  
+            <div class="col-lg-12 text-center py-3 mt-3 px-3">
+              <button type="submit" class="btn btn-primary" style="margin-right: 10px;">Update Book</button>
+              <button type="button" class="btn btn-secondary" routerLink="/books">Cancel</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  
