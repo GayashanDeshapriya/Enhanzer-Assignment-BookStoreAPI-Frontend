@@ -1,14 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { BookService } from '../service/book.service';
+import { Component } from '@angular/core';
+import { BookService } from '../../service/book.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-listing',
-  templateUrl: './listing.component.html',
-  styleUrl: './listing.component.css'
+  selector: 'app-book-list',
+  templateUrl: './book-list.component.html',
+  styleUrl: './book-list.component.css'
 })
-export class BookListComponent implements OnInit {
-  BookList: any[] = [];
+export class BookListComponent {
+BookList: any[] = [];
 
   constructor(private bookService: BookService, private router: Router) {}
 
@@ -17,6 +17,7 @@ export class BookListComponent implements OnInit {
   }
 
   fetchBooks(): void {
+    debugger;
     this.bookService.getBooks().subscribe((books: any[]) => {
       this.BookList = books;
     });

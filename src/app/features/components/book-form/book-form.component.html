@@ -1,0 +1,53 @@
+<div class="form-container">
+  <h2>{{ isEditMode ? 'Edit Book' : 'Add Book' }}</h2>
+
+  <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+
+    <!-- Title -->
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input id="title" type="text" formControlName="title" placeholder="Book title" />
+      <div class="error" *ngIf="f['title'].invalid && f['title'].touched">
+        <span *ngIf="f['title'].errors?.['required']">Title is required.</span>
+        <span *ngIf="f['title'].errors?.['minlength']">Minimum 2 characters.</span>
+      </div>
+    </div>
+
+    <!-- Author -->
+    <div class="form-group">
+      <label for="author">Author</label>
+      <input id="author" type="text" formControlName="author" placeholder="Author name" />
+      <div class="error" *ngIf="f['author'].invalid && f['author'].touched">
+        <span *ngIf="f['author'].errors?.['required']">Author is required.</span>
+      </div>
+    </div>
+
+    <!-- ISBN -->
+    <div class="form-group">
+      <label for="isbn">ISBN</label>
+      <input id="isbn" type="text" formControlName="isbn" placeholder="10 or 13 digits" />
+      <div class="error" *ngIf="f['isbn'].invalid && f['isbn'].touched">
+        <span *ngIf="f['isbn'].errors?.['required']">ISBN is required.</span>
+        <span *ngIf="f['isbn'].errors?.['pattern']">Must be a valid 10 or 13-digit ISBN.</span>
+      </div>
+    </div>
+
+    <!-- Publication Date -->
+    <div class="form-group">
+      <label for="publicationDate">Publication Date</label>
+      <input id="publicationDate" type="date" formControlName="publicationDate" />
+      <div class="error" *ngIf="f['publicationDate'].invalid && f['publicationDate'].touched">
+        <span *ngIf="f['publicationDate'].errors?.['required']">Publication date is required.</span>
+      </div>
+    </div>
+
+    <!-- Actions -->
+    <div class="form-actions">
+      <button type="submit" [disabled]="bookForm.invalid">
+        {{ isEditMode ? 'Update' : 'Add' }} Book
+      </button>
+      <button type="button" (click)="onCancel()">Cancel</button>
+    </div>
+
+  </form>
+</div>

@@ -1,19 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BookListComponent } from './listing/listing.component';
-import { CreateBooksComponent } from './create-books/create-books.component';
-import { EditBookComponent } from './edit-book/edit-book.component';
+import { BookListComponent } from './features/components/book-list/book-list.component';
+import { BookEditComponent } from './features/components/book-edit/book-edit.component';
+import { BookCreateComponent } from './features/components/book-create/book-create.component';
+
 
 
 const routes: Routes = [
-  { path: 'books', component: BookListComponent },
-  { path: 'editBook/:id', component: EditBookComponent },  // Route for editing a book
-  { path: 'addbook', component: CreateBooksComponent },
-  { path: 'books/addbook', component: CreateBooksComponent },
+  { path: '', component: BookListComponent },
+  { path: 'editBook/:id', component: BookEditComponent },  // Route for editing a book
+  { path: 'addbook', component: BookCreateComponent },
+  { path: 'books/addbook', component: BookCreateComponent },
   { path: '', redirectTo: '/books', pathMatch: 'full' }
 ];
 
-@NgModule({
+@NgModule({ 
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
