@@ -1,27 +1,140 @@
-# MC
+# 📚 Book Management Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.0.
+A responsive Angular application built to consume the Book Management API.  
+This application allows users to manage books with full CRUD functionality.
 
-## Development server
+---
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 🚀 Tech Stack
 
-## Code scaffolding
+- Angular (Latest Stable Version)
+- TypeScript
+- Reactive Forms
+- Angular HttpClient
+- REST API Integration
+- Bootstrap / CSS
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+---
 
-## Build
+## 📌 Features
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- View list of books
+- Add new book
+- Edit existing book
+- Delete book
+- Client-side form validation (Reactive Forms)
+- API error handling
+- Clean component-based structure
 
-## Running unit tests
+---
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## 🏗 Architecture
 
-## Running end-to-end tests
+This project uses:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- Reactive Forms (not template-driven)
+- Service-based API communication
+- Clean separation of concerns
 
-## Further help
+```
+src/app/
+│
+├── components/
+│   ├── book-list/
+│   └── book-form/
+│
+├── services/
+│   └── book.service.ts
+│
+├── models/
+│   └── book.model.ts
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+---
+
+## 🛠 How to Run the Frontend
+
+### 1️⃣ Install Node.js  
+Download from:  
+https://nodejs.org/
+
+### 2️⃣ Install Angular CLI
+```bash
+npm install -g @angular/cli
+```
+
+### 3️⃣ Clone the repository
+```bash
+git clone <your-frontend-repo-url>
+cd book-management-frontend
+```
+
+### 4️⃣ Install dependencies
+```bash
+npm install
+```
+
+### 5️⃣ Run the application
+```bash
+ng serve
+```
+
+App will run at:
+```
+http://localhost:4200
+```
+
+---
+
+## 🔗 Backend API Configuration
+
+Ensure the backend API is running.
+
+If needed, update API base URL in:
+
+```
+environment.ts
+```
+
+Example:
+
+```ts
+apiUrl: 'https://localhost:5001/api'
+```
+
+---
+
+## 🧠 Why Reactive Forms?
+
+Reactive Forms are used because they:
+
+- Provide explicit form control structure
+- Offer scalable validation handling
+- Enable dynamic validation rules
+- Improve testability
+- Allow better API error integration
+
+---
+
+## 🛡 Validation
+
+Client-side validation includes:
+
+- Required fields
+- Maximum length validation
+- ISBN pattern validation (13 digits)
+- Publication date validation
+
+---
+
+## 📌 Notes
+
+- The frontend communicates with ASP.NET Core Web API.
+- All validation is implemented both on client-side and server-side.
+- Designed following clean and maintainable coding practices.
+
+---
+
+## 👨‍💻 Author
+
+Developed as part of a Software Engineer technical assignment.
