@@ -23,8 +23,6 @@ An Angular 17 single-page application for managing a personal book catalog. It c
 | HTTP | Angular `HttpClient` |
 | Forms | Angular Reactive Forms |
 | Notifications | ngx-toastr 18 |
-| PDF Viewer | ngx-extended-pdf-viewer 19 |
-| Unit Testing | Karma + Jasmine |
 
 ---
 
