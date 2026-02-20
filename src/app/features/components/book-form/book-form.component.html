@@ -1,53 +1,136 @@
-<div class="form-container">
-  <h2>{{ isEditMode ? 'Edit Book' : 'Add Book' }}</h2>
+<div class="page-wrapper">
+  <div class="form-card">
 
-  <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
-
-    <!-- Title -->
-    <div class="form-group">
-      <label for="title">Title</label>
-      <input id="title" type="text" formControlName="title" placeholder="Book title" />
-      <div class="error" *ngIf="f['title'].invalid && f['title'].touched">
-        <span *ngIf="f['title'].errors?.['required']">Title is required.</span>
-        <span *ngIf="f['title'].errors?.['minlength']">Minimum 2 characters.</span>
+    <!-- Header -->
+    <div class="card-header-section">
+      <div class="header-icon">
+        <svg viewBox="0 0 24 24">
+          <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+          <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+          <line x1="8" y1="7" x2="16" y2="7"/>
+          <line x1="8" y1="11" x2="16" y2="11"/>
+          <line x1="8" y1="15" x2="13" y2="15"/>
+        </svg>
+      </div>
+      <div class="header-text">
+        <h2>{{ isEditMode ? 'Edit Book' : 'Add New Book' }}</h2>
+        <p>{{ isEditMode ? 'Update the details below' : 'Fill in the book information below' }}</p>
       </div>
     </div>
 
-    <!-- Author -->
-    <div class="form-group">
-      <label for="author">Author</label>
-      <input id="author" type="text" formControlName="author" placeholder="Author name" />
-      <div class="error" *ngIf="f['author'].invalid && f['author'].touched">
-        <span *ngIf="f['author'].errors?.['required']">Author is required.</span>
+    <!-- Form -->
+    <form [formGroup]="bookForm" (ngSubmit)="onSubmit()" autocomplete="off">
+
+      <!-- Title -->
+      <div class="form-group" [class.has-error]="f['title'].invalid && f['title'].touched">
+        <label for="title">Book Title</label>
+        <div class="input-wrapper">
+          <div class="field-icon">
+            <svg viewBox="0 0 24 24">
+              <line x1="4" y1="6" x2="20" y2="6"/>
+              <line x1="4" y1="12" x2="20" y2="12"/>
+              <line x1="4" y1="18" x2="12" y2="18"/>
+            </svg>
+          </div>
+          <input
+            id="title"
+            type="text"
+            formControlName="title"
+            placeholder="e.g. The Great Gatsby"
+          />
+        </div>
+        <div class="error-msg" *ngIf="f['title'].invalid && f['title'].touched">
+          <span *ngIf="f['title'].errors?.['required']">Title is required.</span>
+          <span *ngIf="f['title'].errors?.['minlength']">Minimum 2 characters.</span>
+        </div>
       </div>
-    </div>
 
-    <!-- ISBN -->
-    <div class="form-group">
-      <label for="isbn">ISBN</label>
-      <input id="isbn" type="text" formControlName="isbn" placeholder="10 or 13 digits" />
-      <div class="error" *ngIf="f['isbn'].invalid && f['isbn'].touched">
-        <span *ngIf="f['isbn'].errors?.['required']">ISBN is required.</span>
-        <span *ngIf="f['isbn'].errors?.['pattern']">Must be a valid 10 or 13-digit ISBN.</span>
+      <!-- Author -->
+      <div class="form-group" [class.has-error]="f['author'].invalid && f['author'].touched">
+        <label for="author">Author</label>
+        <div class="input-wrapper">
+          <div class="field-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+              <circle cx="12" cy="7" r="4"/>
+            </svg>
+          </div>
+          <input
+            id="author"
+            type="text"
+            formControlName="author"
+            placeholder="e.g. F. Scott Fitzgerald"
+          />
+        </div>
+        <div class="error-msg" *ngIf="f['author'].invalid && f['author'].touched">
+          <span *ngIf="f['author'].errors?.['required']">Author name is required.</span>
+        </div>
       </div>
-    </div>
 
-    <!-- Publication Date -->
-    <div class="form-group">
-      <label for="publicationDate">Publication Date</label>
-      <input id="publicationDate" type="date" formControlName="publicationDate" />
-      <div class="error" *ngIf="f['publicationDate'].invalid && f['publicationDate'].touched">
-        <span *ngIf="f['publicationDate'].errors?.['required']">Publication date is required.</span>
+      <!-- ISBN -->
+      <div class="form-group" [class.has-error]="f['isbn'].invalid && f['isbn'].touched">
+        <label for="isbn">ISBN</label>
+        <div class="input-wrapper">
+          <div class="field-icon">
+            <svg viewBox="0 0 24 24">
+              <rect x="3" y="4" width="18" height="16" rx="2"/>
+              <line x1="7" y1="8" x2="17" y2="8"/>
+              <line x1="7" y1="12" x2="17" y2="12"/>
+              <line x1="7" y1="16" x2="12" y2="16"/>
+            </svg>
+          </div>
+          <input
+            id="isbn"
+            type="text"
+            formControlName="isbn"
+            placeholder="10 or 13 digits"
+            maxlength="13"
+          />
+          <span class="char-hint">{{ f['isbn'].value?.length || 0 }}/13</span>
+        </div>
+        <div class="error-msg" *ngIf="f['isbn'].invalid && f['isbn'].touched">
+          <span *ngIf="f['isbn'].errors?.['required']">ISBN is required.</span>
+          <span *ngIf="f['isbn'].errors?.['pattern']">Must be a valid 10 or 13-digit ISBN.</span>
+        </div>
       </div>
-    </div>
 
-    <!-- Actions -->
-    <div class="form-actions">
-      <button type="submit" [disabled]="bookForm.invalid">
-        {{ isEditMode ? 'Update' : 'Add' }} Book
-      </button>
-      <button type="button" (click)="onCancel()">Cancel</button>
-    </div>
+      <!-- Publication Date -->
+      <div class="form-group" [class.has-error]="f['publicationDate'].invalid && f['publicationDate'].touched">
+        <label for="publicationDate">Publication Date</label>
+        <div class="input-wrapper">
+          <div class="field-icon">
+            <svg viewBox="0 0 24 24">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+              <line x1="16" y1="2" x2="16" y2="6"/>
+              <line x1="8" y1="2" x2="8" y2="6"/>
+              <line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+          </div>
+          <input
+            id="publicationDate"
+            type="date"
+            formControlName="publicationDate"
+            placeholder="Publication date"
+          />
+        </div>
+        <div class="error-msg" *ngIf="f['publicationDate'].invalid && f['publicationDate'].touched">
+          <span *ngIf="f['publicationDate'].errors?.['required']">Publication date is required.</span>
+        </div>
+      </div>
 
-  </form>
+      <div class="form-divider"></div>
+
+      <!-- Actions -->
+      <div class="form-actions">
+        <button type="button" class="btn-secondary-action" (click)="onCancel()">Cancel</button>
+        <button type="submit" class="btn-primary-action" [disabled]="bookForm.invalid">
+          {{ isEditMode ? 'Update Book' : 'Add Book' }}
+          <svg viewBox="0 0 24 24">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+        </button>
+      </div>
+
+    </form>
+  </div>
 </div>

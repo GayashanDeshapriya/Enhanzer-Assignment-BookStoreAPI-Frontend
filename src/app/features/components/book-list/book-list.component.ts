@@ -24,7 +24,7 @@ BookList: any[] = [];
   }
 
   editBook(book: any): void {
-    this.router.navigate(['/editBook', book.id]);  // Ensure the route is passed with the book's id
+    this.router.navigate(['/books/edit', book.id]);
   }
 
   deleteBook(bookId: number): void {

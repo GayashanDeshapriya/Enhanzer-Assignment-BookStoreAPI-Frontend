@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { LandingComponent } from './features/components/landing/landing.component';
 import { BookListComponent } from './features/components/book-list/book-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxExtendedPdfViewerModule} from 'ngx-extended-pdf-viewer';
@@ -14,6 +15,7 @@ import { BookCreateComponent } from './features/components/book-create/book-crea
 @NgModule({
   declarations: [
     AppComponent,
+    LandingComponent,
     BookListComponent,
     BookFormComponent,
     BookEditComponent,

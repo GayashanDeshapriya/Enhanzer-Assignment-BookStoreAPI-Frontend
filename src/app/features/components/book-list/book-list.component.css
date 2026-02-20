@@ -1,0 +1,303 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* ---------- Page wrapper ---------- */
+.page-wrapper {
+    min-height: calc(100vh - 72px);
+    background: #f4f6f8;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 48px 16px 64px;
+    font-family: 'Inter', sans-serif;
+}
+
+/* ---------- Main card ---------- */
+.list-card {
+    width: 100%;
+    max-width: 960px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07), 0 8px 32px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+    animation: fadeUp 0.35s ease both;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ---------- Card header ---------- */
+.card-header-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 32px;
+    border-bottom: 1px solid #e9ecef;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.header-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: #198754;
+    flex-shrink: 0;
+}
+
+.header-icon svg {
+    width: 22px;
+    height: 22px;
+    stroke: #fff;
+    fill: none;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.header-text h2 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin: 0 0 2px;
+    letter-spacing: -0.2px;
+}
+
+.header-text p {
+    font-size: 0.8125rem;
+    color: #6c757d;
+    margin: 0;
+    font-weight: 400;
+}
+
+/* ---------- Add button ---------- */
+.btn-add {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    height: 40px;
+    padding: 0 18px;
+    background: #198754;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+    box-shadow: 0 2px 8px rgba(25, 135, 84, 0.25);
+}
+
+.btn-add svg {
+    width: 15px;
+    height: 15px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+}
+
+.btn-add:hover {
+    background: #157347;
+    color: #fff;
+    box-shadow: 0 4px 16px rgba(25, 135, 84, 0.35);
+    transform: translateY(-1px);
+    text-decoration: none;
+}
+
+/* ---------- Table wrapper ---------- */
+.table-wrapper {
+    overflow-x: auto;
+}
+
+/* ---------- Table ---------- */
+.book-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+}
+
+.book-table thead tr {
+    background: #f8f9fa;
+}
+
+.book-table thead th {
+    padding: 12px 20px;
+    text-align: left;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #6c757d;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    border-bottom: 1px solid #e9ecef;
+    white-space: nowrap;
+}
+
+.book-table tbody .table-row {
+    border-bottom: 1px solid #f1f3f5;
+    transition: background 0.15s;
+}
+
+.book-table tbody .table-row:last-child {
+    border-bottom: none;
+}
+
+.book-table tbody .table-row:hover {
+    background: #f8fffe;
+}
+
+.book-table td {
+    padding: 14px 20px;
+    color: #343a40;
+    vertical-align: middle;
+}
+
+.td-title .book-title-text {
+    font-weight: 600;
+    color: #1a1a2e;
+}
+
+.td-author {
+    color: #495057;
+}
+
+.isbn-badge {
+    display: inline-block;
+    padding: 3px 10px;
+    background: #f1f3f5;
+    border-radius: 20px;
+    font-size: 0.775rem;
+    font-family: 'Courier New', monospace;
+    color: #495057;
+    letter-spacing: 0.02em;
+}
+
+.td-date {
+    color: #6c757d;
+    white-space: nowrap;
+}
+
+/* ---------- Action buttons ---------- */
+.td-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-edit,
+.btn-delete {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    height: 32px;
+    padding: 0 12px;
+    border: none;
+    border-radius: 6px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+}
+
+.btn-edit svg,
+.btn-delete svg {
+    width: 13px;
+    height: 13px;
+    stroke: currentColor;
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    flex-shrink: 0;
+}
+
+.btn-edit {
+    background: #e8f5e9;
+    color: #198754;
+}
+
+.btn-edit:hover {
+    background: #d4edda;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(25, 135, 84, 0.2);
+}
+
+.btn-delete {
+    background: #fef2f2;
+    color: #dc3545;
+}
+
+.btn-delete:hover {
+    background: #fde8e9;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(220, 53, 69, 0.15);
+}
+
+/* ---------- Empty state ---------- */
+.empty-state {
+    padding: 56px 20px !important;
+    text-align: center;
+}
+
+.empty-inner svg {
+    width: 48px;
+    height: 48px;
+    stroke: #dee2e6;
+    fill: none;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    margin-bottom: 14px;
+}
+
+.empty-inner p {
+    font-size: 0.9rem;
+    color: #adb5bd;
+    margin: 0;
+}
+
+.empty-inner a {
+    color: #198754;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.empty-inner a:hover {
+    text-decoration: underline;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 640px) {
+    .card-header-section {
+        padding: 20px;
+    }
+
+    .book-table thead th,
+    .book-table td {
+        padding: 12px 14px;
+    }
+
+    .td-actions {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+    }
+}

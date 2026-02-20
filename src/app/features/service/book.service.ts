@@ -20,7 +20,6 @@ export class BookService {
   constructor(private http: HttpClient) {}
 
   getBooks(): Observable<Book[]> {
-    debugger;
     return this.http.get<Book[]>(`${this.apiUrl}`);
   }
 
